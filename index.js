@@ -82,6 +82,7 @@ let provLst = [
 
 let result = [];
 
+
 function compare(a, b) {
   if (a.weight < b.weight) {
     return 1;
@@ -92,24 +93,26 @@ function compare(a, b) {
   return 0;
 }
 
-function render() {
-    let tbody = $('#table-body');
-    $.each(result, (key, value) => {
-        let text = `<tr>
+function render() { 
+  let tbody = $("#table-body");
+  $.each(result, (key, value) => {
+    let text = `<tr>
                         <th scope="row">${value.raw}</th>
                         <td>${value.prov}</td> 
                     </tr>`;
-        tbody.append(text);
-    });
+    tbody.append(text);
+  });
 }
 
 $(function () {
   $("#btnExtract").on("click", function (e) {
     e.preventDefault();
-    $('#table-body').html('');
-    let src = $("#src").val().split(/\r?\n/);
-    $.each(src, (key, value) => { 
 
+    $("#table-body tr").remove();
+    result = [];
+
+    let src = $("#src").val().split(/\r?\n/);
+    $.each(src, (key, value) => {
       let prov = [];
       $.each(provLst, (pkey, pval) => {
         if (value.includes(pval)) {
@@ -132,7 +135,7 @@ $(function () {
           raw: value,
           prov: "",
         });
-      }  
+      }
     });
 
     render();
