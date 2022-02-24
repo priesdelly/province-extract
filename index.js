@@ -94,7 +94,7 @@ function compare(a, b) {
 
 function render() {
     let tbody = $('#table-body');
-    tbody.html('');
+    $(tbody).html('');
     $.each(result, (key, value) => {
         let text = `<tr>
                         <th scope="row">${value.raw}</th>
@@ -109,7 +109,7 @@ $(function () {
     e.preventDefault();
     let src = $("#src").val().split(/\r?\n/);
     $.each(src, (key, value) => { 
-      
+
       let prov = [];
       $.each(provLst, (pkey, pval) => {
         if (value.includes(pval)) {
