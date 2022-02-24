@@ -94,7 +94,7 @@ function compare(a, b) {
 
 function render() {
     let tbody = $('#table-body');
-    tbody.val('');
+    tbody.html('');
     $.each(result, (key, value) => {
         let text = `<tr>
                         <th scope="row">${value.raw}</th>
