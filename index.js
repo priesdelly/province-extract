@@ -108,8 +108,8 @@ $(function () {
   $("#btnExtract").on("click", function (e) {
     e.preventDefault();
     let src = $("#src").val().split(/\r?\n/);
-    $.each(src, (key, value) => {
-      console.log(value);
+    $.each(src, (key, value) => { 
+      
       let prov = [];
       $.each(provLst, (pkey, pval) => {
         if (value.includes(pval)) {
