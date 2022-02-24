@@ -94,7 +94,6 @@ function compare(a, b) {
 
 function render() {
     let tbody = $('#table-body');
-    $(tbody).html('');
     $.each(result, (key, value) => {
         let text = `<tr>
                         <th scope="row">${value.raw}</th>
@@ -107,6 +106,7 @@ function render() {
 $(function () {
   $("#btnExtract").on("click", function (e) {
     e.preventDefault();
+    $('#table-body').html('');
     let src = $("#src").val().split(/\r?\n/);
     $.each(src, (key, value) => { 
 
